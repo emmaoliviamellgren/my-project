@@ -6,7 +6,7 @@
 			(ngSubmit)="getWeather()"
 			class="flex gap-3 items-center">
 			<app-input
-				class="max-w-md sm:w-[500px]"
+				class="max-w-md sm:w-[500px] w-full"
 				name="location"
 				[errorMessage]="errorMessage"
 				[(ngModel)]="location"
@@ -22,10 +22,10 @@
         </div>
 
 		<div *ngIf="weatherData; else noData" class="relative top-52 sm:top-72 flex flex-col items-center">
-			<h1 class="text-center text-white/80 text-5xl font-medium">
+			<h1 class="text-center text-white/80 text-4xl sm:text-5xl font-medium">
 				{{ getTemp() }} °C
 			</h1>
-			<h2 class="my-4 text-5xl tracking-tight font-thin text-white">
+			<h2 class="my-4 text-4xl sm:text-5xl tracking-tight font-thin text-white">
 				{{ weatherData.location.name }}
 			</h2>
 			<p class="text-center text-white/80">
@@ -35,7 +35,7 @@
 
 		<ng-template #noData>
 			<div class="relative top-52 sm:top-72 flex flex-col items-center">
-				<h2 class="mb-4 text-5xl tracking-tight font-thin text-white">
+				<h2 class="mb-4 text-4xl sm:text-5xl tracking-tight font-thin text-white">
 					Please enter your location
 				</h2>
 			</div>
