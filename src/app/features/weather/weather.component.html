@@ -1,0 +1,47 @@
+<main
+	class="bg-gradient-to-r from-indigo-950 to-stone-900 h-screen w-screen flex flex-col justify-between items-center selection:bg-indigo-700/10">
+	<div class="py-8 px-4 sm:py-16">
+		<form
+			#weatherForm="ngForm"
+			(ngSubmit)="getWeather()"
+			class="flex gap-3 items-center">
+			<app-input
+				class="max-w-md sm:w-[500px]"
+				name="location"
+				required
+				#locationInput="ngModel"
+				[(ngModel)]="location"
+				placeholder="Enter location" />
+			<app-button
+				label="Search"
+				type="submit"
+				[disabled]="isSubmitting" />
+		</form>
+
+		<div *ngIf="errorMessage" class="text-red-500 text-sm">
+            {{ errorMessage }}
+        </div>
+
+		<div
+			*ngIf="weatherData"
+			class="relative top-52 sm:top-72 flex flex-col items-center">
+			<h1 class="text-center text-white/80 text-5xl font-medium">
+				{{ getTemp() }} °C
+			</h1>
+			<h2 class="my-4 text-5xl tracking-tight font-thin text-white">
+				{{ weatherData.location.name }}
+			</h2>
+			<p class="text-center text-white/80">
+				{{ weatherData.current.condition.text }}
+			</p>
+		</div>
+		<div
+			*ngIf="!weatherData"
+			class="relative top-52 sm:top-72 flex flex-col items-center">
+			<h2 class="mb-4 text-5xl tracking-tight font-thin text-white">
+				Please enter your location
+			</h2>
+		</div>
+	</div>
+	<app-footer />
+</main>
