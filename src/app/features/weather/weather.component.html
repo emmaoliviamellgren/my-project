@@ -8,8 +8,7 @@
 			<app-input
 				class="max-w-md sm:w-[500px]"
 				name="location"
-				required
-				#locationInput="ngModel"
+				[errorMessage]="errorMessage"
 				[(ngModel)]="location"
 				placeholder="Enter location" />
 			<app-button
@@ -18,13 +17,11 @@
 				[disabled]="isSubmitting" />
 		</form>
 
-		<div *ngIf="errorMessage" class="text-red-500 text-sm">
+		<div *ngIf="errorMessage" class="text-red-500 text-xs font-medium mt-3">
             {{ errorMessage }}
         </div>
 
-		<div
-			*ngIf="weatherData"
-			class="relative top-52 sm:top-72 flex flex-col items-center">
+		<div *ngIf="weatherData; else noData" class="relative top-52 sm:top-72 flex flex-col items-center">
 			<h1 class="text-center text-white/80 text-5xl font-medium">
 				{{ getTemp() }} °C
 			</h1>
@@ -35,13 +32,14 @@
 				{{ weatherData.current.condition.text }}
 			</p>
 		</div>
-		<div
-			*ngIf="!weatherData"
-			class="relative top-52 sm:top-72 flex flex-col items-center">
-			<h2 class="mb-4 text-5xl tracking-tight font-thin text-white">
-				Please enter your location
-			</h2>
-		</div>
+
+		<ng-template #noData>
+			<div class="relative top-52 sm:top-72 flex flex-col items-center">
+				<h2 class="mb-4 text-5xl tracking-tight font-thin text-white">
+					Please enter your location
+				</h2>
+			</div>
+		</ng-template>
 	</div>
 	<app-footer />
 </main>
