@@ -6,6 +6,5 @@ import { WeatherComponent } from './features/weather/weather.component';
   selector: 'app-root',
   imports: [RouterOutlet, WeatherComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {}

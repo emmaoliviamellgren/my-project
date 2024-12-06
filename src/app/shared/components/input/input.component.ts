@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -6,7 +6,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 	selector: 'app-input',
 	imports: [NgClass],
 	templateUrl: './input.component.html',
-	styles: '',
 	providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,
@@ -20,6 +19,8 @@ export class InputComponent implements ControlValueAccessor {
 	@Input() placeholder: string = '';
 	@Input() type: string = 'text';
 	@Input() errorMessage: string = '';
+
+// For custom form control
 
 	onChange = (value: string) => {};
 	onTouched = () => {};

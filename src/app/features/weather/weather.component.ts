@@ -18,7 +18,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 		FormsModule,
 	],
 	templateUrl: './weather.component.html',
-	styles: '',
 })
 export class WeatherComponent {
 	isSubmitting: boolean = false;

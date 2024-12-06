@@ -3,5 +3,7 @@
 	[placeholder]="placeholder"
 	[value]="value"
 	(input)="onInput($event)"
-	[ngClass]="{ 'outline-red-500': errorMessage }"
-	class="w-full rounded-md bg-white/10 px-3.5 py-2 text-white border-none outline outline-1 -outline-offset-1 outline-white/20 shadow-sm placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-950 text-sm/6" />
+	[ngClass]="[
+		'w-full rounded-md bg-white/10 px-3.5 py-2 text-white border-none outline outline-1 -outline-offset-1 shadow-sm placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-950 text-sm/6',
+		errorMessage ? 'outline-red-500' : 'outline-white/20'
+	]" />

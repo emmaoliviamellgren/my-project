@@ -5,7 +5,6 @@ import { Component, Input } from '@angular/core';
   selector: 'app-button',
   imports: [NgClass],
   templateUrl: './button.component.html',
-  styles: '',
 })
 export class ButtonComponent {
   @Input() type: string = 'button';
